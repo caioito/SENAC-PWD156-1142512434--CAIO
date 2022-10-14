@@ -63,32 +63,11 @@
         <button onclick="validate()">Comprar</button>
         </div>
         <div class="final-step">
-            <h2>Resultado Desgraça</h2>
+            <h2 result.innerHTML = (resultado);>Resultado</h2>
             <p id="resultado"></p>
-            <button>Calcular Novamente</button>
-            <button>finalizar</button>
         </div>
     </div>
     <script>
-        const firstDiv = document.querySelector('.first-step');
-        const finaltDiv = document.querySelector('.final-step');
-        function go(currentStep,nextStep){
-            let dNone, dBlock;
-            if(currentStep ==1) {
-                dNone = firstDiv;
-            }
-            else if(currentStep ==2) {
-                dNone = finaltDiv;
-            }
-            dNone.style.display = 'none';
-            if(nextStep ==1) {
-                dBlock = firstDiv;
-            }
-            else if(nextStep ==2) {
-                dBlock = finaltDiv;
-            }
-            dBlock.style.display = 'block';
-        }
         function validate(){
             const produto = document.getElementById('produto');
             const quantidade = document.getElementById('quantidade');
@@ -103,11 +82,18 @@
                 }else{
                     quantidade.style.border = '1px solid red';
                 }
-            }else{
-                let resultado = produto.value * quantidade.value;
             }
-            go(1,2);
+            else{
+                let resultado = produto.value * quantidade.value;
+                const result = document.getElementById('resultado')
+                console.log(resultado);
+                result.innerHTML='Valor total do produto';
+                result.innerHTML=resultado;
+               
+            }
+            
         }
+        
     </script>
     
 </body>
